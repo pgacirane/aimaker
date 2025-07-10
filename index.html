@@ -2,184 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <title>AIONISER - Smart AI Solutions</title>
-  <style>
-    /* Reset and base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff;
-      color: #222;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-    a {
-      color: #0d6efd;
-      text-decoration: none;
-    }
-    a:hover, a:focus {
-      text-decoration: underline;
-    }
-    header {
-      background: #0077cc;
-      color: #fff;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-    }
-    header nav a {
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 4rem;
-    }
-    h1, h2, h3 {
-      color: #004080;
-      margin-bottom: 0.5rem;
-    }
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.5rem;
-    }
-    h2 {
-      font-size: 1.8rem;
-      border-bottom: 3px solid #0077cc;
-      padding-bottom: 0.3rem;
-      margin-top: 2rem;
-    }
-    ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-    }
-    .btn-primary {
-      display: inline-block;
-      background: #0077cc;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 5px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 1rem;
-      transition: background-color 0.3s ease;
-      border: none;
-      font-size: 1rem;
-      text-align: center;
-    }
-    .btn-primary:hover, .btn-primary:focus {
-      background: #005fa3;
-      outline: none;
-    }
-    footer {
-      background: #f0f0f0;
-      text-align: center;
-      padding: 1rem 1rem;
-      font-size: 0.9rem;
-      color: #666;
-      border-top: 1px solid #ddd;
-    }
-    @media (max-width: 600px) {
-      header nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      main {
-        margin: 1rem;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIONISER</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <img src="assets/logo.jpeg" alt="AIONISER Logo" class="logo" />
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<header>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#services">Services</a>
-    <a href="#solutions">Solutions</a>
-    <a href="#contact">Contact Us</a>
-  </nav>
-</header>
-
-<main>
-
-  <section id="home" aria-label="Home section">
+  <section id="home" class="hero">
     <h1>Smart Agents. Real Solutions. AI That Works for You.</h1>
-    <p>At AIONISER, based in Kigali, Rwanda, we create intelligent AI applications, transform them into seamless APIs, and build easy-to-use web apps. Our end-to-end AI solutions leverage smart agents and large language models (LLMs) to automate complex tasks and provide actionable insights that solve real-world problems.</p>
-    <h2>Our Services:</h2>
-    <ul>
-      <li>AI Application Development</li>
-      <li>API-as-a-Service</li>
-      <li>Custom Web Apps</li>
-      <li>Intelligent Automation & Insights</li>
-    </ul>
-    <a class="btn-primary" href="#contact">Contact Us Today</a>
+    <p>At AIONISER, we create intelligent AI applications, transform them into seamless APIs, and build easy-to-use web apps...</p>
+    <a href="#contact" class="cta">Contact Us Today</a>
   </section>
 
-  <section id="about" aria-label="About Us section">
+  <section id="about">
     <h2>About Us</h2>
-    <p>AIONISER is a cutting-edge AI company rooted in Kigali’s tech ecosystem. We are passionate about delivering full-cycle AI solutions — from concept and development to deployment and integration.</p>
-    <h3>What makes us unique?</h3>
+    <p>AIONISER is a cutting-edge AI company rooted in Kigali�s tech ecosystem...</p>
     <ul>
-      <li>We provide end-to-end AI services so you have one trusted partner.</li>
-      <li>Our smart agents adapt dynamically, automating complex workflows effortlessly.</li>
-      <li>We build solutions with practical impact, demonstrated by our flagship app, Global Legal Companion.</li>
-      <li>We deliver APIs and web apps that anyone can use, no advanced technical skills required.</li>
-      <li>Proudly local, yet thinking globally — building AI that fits emerging markets and beyond.</li>
+      <li>End-to-end AI services from one trusted partner</li>
+      <li>Smart agents that adapt dynamically</li>
+      <li>Practical impact � see Global Legal Companion</li>
+      <li>Accessible APIs and apps for everyone</li>
     </ul>
   </section>
 
-  <section id="services" aria-label="Services section">
-    <h2>Services</h2>
-    <h3>AI Application Development</h3>
-    <p>Custom AI models and solutions tailored to your needs, leveraging the latest LLM technology and smart agent frameworks.</p>
-    <h3>API-as-a-Service</h3>
-    <p>We convert AI capabilities into easy-to-integrate APIs, empowering your existing systems with intelligence.</p>
-    <h3>Custom Web Apps</h3>
-    <p>User-friendly interfaces that make AI accessible for your team and customers.</p>
-    <h3>Automation & Insights</h3>
-    <p>End-to-end automation solutions combined with actionable data insights to drive your business forward.</p>
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li><strong>AI Application Development</strong> � Custom models & smart agents</li>
+      <li><strong>API-as-a-Service</strong> � Seamless system integration</li>
+      <li><strong>Custom Web Apps</strong> � User-friendly AI interfaces</li>
+      <li><strong>Automation & Insights</strong> � Data-powered transformation</li>
+    </ul>
   </section>
 
-  <section id="solutions" aria-label="Solutions section">
+  <section id="solutions">
     <h2>Solutions</h2>
-    <h3>Global Legal Companion</h3>
-    <p>An AI-powered application designed to help individuals and organizations stay compliant with legal requirements. It provides smart, real-time guidance to navigate complex legal landscapes efficiently.</p>
+    <p><strong>Global Legal Companion:</strong> An AI-powered app for legal compliance and guidance.</p>
   </section>
 
-  <section id="contact" aria-label="Contact Us section">
+  <section id="contact">
     <h2>Contact Us</h2>
-    <p>We’d love to hear about your AI project or how we can help your organization innovate.</p>
-    <address>
-      <strong>Address:</strong> Kigali, Kicukiro, Rwanda<br />
-      <strong>Phone:</strong> <a href="tel:+250787100878">0787100878</a> / <a href="tel:+250783055721">0783055721</a><br />
-      <strong>Emails:</strong><br />
-      <a href="mailto:pattos1900@gmail.com">pattos1900@gmail.com</a><br />
-      <a href="mailto:kundstella1@gmail.com">kundstella1@gmail.com</a>
-    </address>
+    <p>We�d love to hear about your AI project or how we can help your organization innovate.</p>
+    <ul>
+      <li><strong>Address:</strong> Kigali, Kicukiro, Rwanda</li>
+      <li><strong>Phone:</strong> 0787100878 / 0783055721</li>
+      <li><strong>Email:</strong> pattos1900@gmail.com / kundstella1@gmail.com</li>
+    </ul>
   </section>
 
-</main>
+  <footer>
+    <p>� 2025 AIONISER. All rights reserved.</p>
+  </footer>
 
-<footer>
-  &copy; 2025 AIONISER. All rights reserved.
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
