@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="12" fill="rgba(245,166,35,0.08)"/>
+  <!-- smartphone -->
+  <rect x="18" y="10" width="20" height="34" rx="3" stroke="#f5a623" stroke-width="1.8"/>
+  <circle cx="28" cy="40" r="2" fill="#f5a623" opacity="0.6"/>
+  <line x1="22" y1="16" x2="34" y2="16" stroke="#f5a623" stroke-width="1" opacity="0.4"/>
+  <!-- tablet side -->
+  <rect x="40" y="18" width="14" height="22" rx="2" stroke="#f5a623" stroke-width="1.5" opacity="0.55"/>
+  <circle cx="47" cy="37" r="1.5" fill="#f5a623" opacity="0.5"/>
+  <!-- approval checkmark -->
+  <circle cx="46" cy="46" r="8" fill="#080c12" stroke="#1de8c8" stroke-width="1.5"/>
+  <path d="M42 46 L45 49 L51 43" stroke="#1de8c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

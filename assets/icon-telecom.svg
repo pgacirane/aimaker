@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="12" fill="rgba(29,232,200,0.07)"/>
+  <!-- tower legs -->
+  <path d="M32 12 L22 52" stroke="#1de8c8" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 12 L42 52" stroke="#1de8c8" stroke-width="2" stroke-linecap="round"/>
+  <!-- cross beams -->
+  <line x1="25" y1="26" x2="39" y2="26" stroke="#1de8c8" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="24" y1="35" x2="40" y2="35" stroke="#1de8c8" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="23" y1="44" x2="41" y2="44" stroke="#1de8c8" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <!-- signal waves left -->
+  <path d="M20 18 Q16 22 20 26" stroke="#f5a623" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M17 15 Q11 22 17 29" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <!-- signal waves right -->
+  <path d="M44 18 Q48 22 44 26" stroke="#f5a623" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M47 15 Q53 22 47 29" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <!-- tip dot -->
+  <circle cx="32" cy="12" r="3" fill="#f5a623"/>
+  <!-- base platform -->
+  <line x1="18" y1="52" x2="46" y2="52" stroke="#1de8c8" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+</svg>

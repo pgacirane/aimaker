@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="12" fill="rgba(29,232,200,0.07)"/>
+  <!-- person -->
+  <circle cx="32" cy="20" r="7" stroke="#1de8c8" stroke-width="1.8"/>
+  <path d="M18 48 C18 38 24 33 32 33 C40 33 46 38 46 48" stroke="#1de8c8" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <!-- badge/shield -->
+  <path d="M32 33 L40 37 L40 45 C40 49 36 51 32 53 C28 51 24 49 24 45 L24 37 Z" fill="rgba(29,232,200,0.1)" stroke="#1de8c8" stroke-width="1.5"/>
+  <path d="M27 44 L30 47 L37 40" stroke="#1de8c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

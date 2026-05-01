@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+  <rect width="46" height="46" x="0" y="2" rx="9" fill="#f5a623"/>
+  <text x="6" y="37" font-family="Arial Black,sans-serif" font-weight="900" font-size="30" fill="#080c12">Q</text>
+  <path d="M35 10 Q42 18 35 26" stroke="#080c12" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  <path d="M38.5 7 Q47 18 38.5 29" stroke="#080c12" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.45"/>
+  <text x="55" y="26" font-family="Arial Black,sans-serif" font-weight="900" font-size="19" fill="#ffffff" letter-spacing="-0.5">Qomexis</text>
+  <text x="56" y="40" font-family="Arial,sans-serif" font-size="8" fill="#f5a623" letter-spacing="1.8">COMMUNICATION IN EXCELLENCE</text>
+</svg>
