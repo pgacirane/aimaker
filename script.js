@@ -1,181 +1,132 @@
-/* ================================================================
-   QOMEXIS LTD — script.js
-   Communication in Excellence | Market Access Across Africa
-   ================================================================ */
+/**
+ * QOMEXIS LTD — script.js
+ * Handles: sticky nav scroll state, active section highlighting,
+ *          hamburger menu toggle, smooth-scroll nav clicks.
+ */
 
 (function () {
   'use strict';
 
-  /* ── INIT on DOM ready ── */
-  document.addEventListener('DOMContentLoaded', function () {
-    initNavScroll();
-    initHamburger();
-    initActiveNav();
-    initSmoothScroll();
-    initFadeObserver();
-    initFormHandler();
-  });
+  /* ── DOM refs ──────────────────────────────────── */
+  const header      = document.getElementById('site-header');
+  const hamburger   = document.getElementById('hamburger');
+  const navLinks    = document.getElementById('nav-links');
+  const navLinkEls  = document.querySelectorAll('.nav-link[data-section]');
+  const sections    = document.querySelectorAll('section[id]');
 
-  /* ================================================================
-     1. NAV — add .scrolled class for shadow
-     ================================================================ */
-  function initNavScroll() {
-    var nav = document.getElementById('navbar');
-    if (!nav) return;
-    function tick() { nav.classList.toggle('scrolled', window.scrollY > 20); }
-    window.addEventListener('scroll', tick, { passive: true });
-    tick();
-  }
-
-  /* ================================================================
-     2. HAMBURGER — toggle mobile menu
-     ================================================================ */
-  function initHamburger() {
-    var btn  = document.getElementById('hamburger');
-    var menu = document.getElementById('mobileMenu');
-    if (!btn || !menu) return;
-
-    btn.addEventListener('click', function () {
-      var open = btn.classList.toggle('open');
-      menu.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-      btn.setAttribute('aria-expanded', String(open));
-    });
-
-    /* Close on outside click */
-    document.addEventListener('click', function (e) {
-      if (!btn.contains(e.target) && !menu.contains(e.target)) closeMenu();
-    });
-
-    /* Close on Escape */
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
-    });
-  }
-
-  function closeMenu() {
-    var btn  = document.getElementById('hamburger');
-    var menu = document.getElementById('mobileMenu');
-    if (!btn || !menu) return;
-    btn.classList.remove('open');
-    menu.classList.remove('open');
-    document.body.style.overflow = '';
-    btn.setAttribute('aria-expanded', 'false');
-  }
-
-  /* Exposed globally for onclick attributes in mobile-menu links */
-  window.closeMobile = closeMenu;
-
-  /* ================================================================
-     3. ACTIVE NAV LINKS — highlight on scroll
-     ================================================================ */
-  function initActiveNav() {
-    var sections = Array.from(document.querySelectorAll('section[id]'));
-    var links    = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
-
-    function update() {
-      var current = '';
-      sections.forEach(function (s) {
-        if (window.scrollY >= s.offsetTop - 80) current = s.id;
-      });
-      links.forEach(function (a) {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-      });
+  /* ── Sticky header on scroll ───────────────────── */
+  function updateHeader () {
+    if (window.scrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
     }
-
-    window.addEventListener('scroll', update, { passive: true });
-    update();
   }
 
-  /* ================================================================
-     4. SMOOTH SCROLL — also closes mobile menu on anchor click
-     ================================================================ */
-  function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        var target = document.querySelector(link.getAttribute('href'));
-        if (!target) return;
-        e.preventDefault();
-        closeMenu();
-        var offset = target.getBoundingClientRect().top + window.scrollY
-          - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '66', 10);
-        window.scrollTo({ top: offset, behavior: 'smooth' });
-      });
-    });
-  }
+  /* ── Active nav link by IntersectionObserver ───── */
+  const observerOptions = {
+    root: null,
+    rootMargin: '-50% 0px -45% 0px',
+    threshold: 0
+  };
 
-  /* ================================================================
-     5. FADE-IN on scroll — IntersectionObserver
-     ================================================================ */
-  function initFadeObserver() {
-    var els = document.querySelectorAll('.fade-in');
-    if (!els.length) return;
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    els.forEach(function (el) { observer.observe(el); });
-  }
-
-  /* ================================================================
-     6. CONTACT FORM HANDLER
-     ================================================================ */
-  function initFormHandler() {
-    var form = document.getElementById('contactForm');
-    if (!form) return;
-    form.addEventListener('submit', handleSubmit);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    var sendBtn = e.target.querySelector('.btn-send');
-    var required = Array.from(e.target.querySelectorAll('[required]'));
-
-    /* Validate */
-    var valid = true;
-    required.forEach(function (inp) {
-      if (!inp.value.trim()) {
-        valid = false;
-        inp.style.borderColor = '#e74c3c';
-        inp.addEventListener('input', function () { inp.style.borderColor = ''; }, { once: true });
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinkEls.forEach(link => {
+          link.classList.toggle('active', link.dataset.section === id);
+        });
       }
     });
-    if (!valid) return;
+  }, observerOptions);
 
-    /* Sending state */
-    var original = sendBtn.innerHTML;
-    sendBtn.disabled = true;
-    sendBtn.innerHTML =
-      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"' +
-      ' style="animation:qs-spin 1s linear infinite">' +
-      '<path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" opacity=".25"/>' +
-      '<path d="M21 12a9 9 0 00-9-9" stroke-linecap="round"/></svg>Sending…';
+  sections.forEach(sec => sectionObserver.observe(sec));
 
-    setTimeout(function () {
-      sendBtn.innerHTML        = '✓ Message Sent!';
-      sendBtn.style.background = '#1de8c8';
-      sendBtn.style.color      = '#080c12';
-      e.target.reset();
+  /* ── Hamburger toggle ──────────────────────────── */
+  function toggleMenu (forceClose = false) {
+    const isOpen = navLinks.classList.contains('open');
 
-      setTimeout(function () {
-        sendBtn.innerHTML        = original;
-        sendBtn.style.background = '';
-        sendBtn.style.color      = '';
-        sendBtn.disabled         = false;
-      }, 4000);
-    }, 1600);
+    if (forceClose || isOpen) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    } else {
+      navLinks.classList.add('open');
+      hamburger.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
   }
 
-  /* Spinner keyframe injection */
-  var spinStyle = document.createElement('style');
-  spinStyle.textContent = '@keyframes qs-spin { to { transform: rotate(360deg); } }';
-  document.head.appendChild(spinStyle);
+  hamburger.addEventListener('click', () => toggleMenu());
+
+  /* Close menu when a nav link is clicked */
+  navLinkEls.forEach(link => {
+    link.addEventListener('click', () => toggleMenu(true));
+  });
+
+  /* Close menu when clicking outside */
+  document.addEventListener('click', (e) => {
+    if (!header.contains(e.target)) {
+      toggleMenu(true);
+    }
+  });
+
+  /* Close menu on Escape */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') toggleMenu(true);
+  });
+
+  /* ── Smooth scroll for anchor links ───────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href').slice(1);
+      const target   = document.getElementById(targetId);
+
+      if (target) {
+        e.preventDefault();
+        const navHeight = parseInt(
+          getComputedStyle(document.documentElement)
+            .getPropertyValue('--nav-h')
+        );
+        const targetY = target.getBoundingClientRect().top + window.scrollY - navHeight;
+
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ── Scroll event listener ─────────────────────── */
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  /* ── Init ──────────────────────────────────────── */
+  updateHeader();
+
+  /* ── Fade-in on scroll (Intersection Observer) ── */
+  const fadeEls = document.querySelectorAll(
+    '.service-card, .client-card, .pillar-card, .approach-tag, ' +
+    '.why-item, .contact-item, .social-link, .contact-cta-block'
+  );
+
+  /* Apply initial state */
+  fadeEls.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition =
+      `opacity 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 0.06}s, ` +
+      `transform 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 0.06}s`;
+  });
+
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+
+  fadeEls.forEach(el => fadeObserver.observe(el));
 
 })();
