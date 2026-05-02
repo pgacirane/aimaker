@@ -15,7 +15,7 @@
   --cyan-dim:       #00aacc;
   --cyan-glow:      rgba(0, 212, 255, 0.18);
   --cyan-faint:     rgba(0, 212, 255, 0.06);
-  --accent-gold:    #F0A500;
+  --accent-blue:    #3B82F6;
 
   --text-primary:   #e8f0ff;
   --text-secondary: #8fa3c0;
@@ -64,7 +64,7 @@ img, svg { max-width: 100%; display: block; }
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--cyan) 0%, #5ae3ff 60%, var(--accent-gold) 100%);
+  background: linear-gradient(135deg, var(--cyan) 0%, #5ae3ff 60%, var(--accent-blue) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -302,7 +302,7 @@ img, svg { max-width: 100%; display: block; }
 }
 .glow-2 {
   width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(240, 165, 0, 0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
   bottom: 50px; left: -80px;
 }
 
