@@ -1,10 +1,14 @@
-<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="40" height="40" rx="6" fill="#0a1628"/>
-  <path d="M8 10 L20 6 L32 10 L32 34 L20 34 L8 34 Z" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
-  <path d="M14 17 L26 17" stroke="#c9a84c" stroke-width="1.2"/>
-  <path d="M14 22 L22 22" stroke="#c9a84c" stroke-width="1.2"/>
-  <path d="M14 27 L24 27" stroke="#c9a84c" stroke-width="1.2"/>
-  <circle cx="20" cy="6" r="2" fill="#c9a84c"/>
-  <path d="M20 8 L20 12" stroke="#c9a84c" stroke-width="1.2"/>
-  <path d="M17 11 L23 11" stroke="#c9a84c" stroke-width="0.8" stroke-dasharray="1.5 1.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#e8851a"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="10" fill="url(#bg)"/>
+  <!-- Q letterform -->
+  <text x="5" y="36" font-family="Arial Black,sans-serif" font-weight="900" font-size="32" fill="#0d1117">Q</text>
+  <!-- signal arcs top-right -->
+  <path d="M36 11 Q41 16 36 21" stroke="#0d1117" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M39 8  Q46 16 39 24" stroke="#0d1117" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.45"/>
 </svg>

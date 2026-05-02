@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 520" fill="none">
+  <!-- Africa continent silhouette -->
+  <path d="M130 14 C98 16 64 30 48 58 C32 86 30 114 35 141
+           C22 158 16 180 20 207 C10 225 8 248 17 268
+           C5 293 8 321 22 344 C34 371 57 399 85 421
+           C107 443 135 465 162 481 C179 492 196 503 213 498
+           C230 490 241 470 246 448 C258 424 270 397 279 369
+           C291 340 299 309 302 278 C307 249 304 221 295 197
+           C288 175 275 156 270 133 C268 110 270 88 264 65
+           C257 41 237 19 215 12 C192 5 162 7 130 14Z"
+        fill="rgba(245,166,35,0.06)" stroke="rgba(245,166,35,0.22)" stroke-width="1.5"/>
+  <!-- Horn/Somali peninsula -->
+  <path d="M246 448 C254 467 265 480 276 475 C287 469 293 451 290 433
+           C287 416 280 402 274 391 L246 448Z"
+        fill="rgba(245,166,35,0.06)"/>
+  <!-- Madagascar -->
+  <path d="M296 278 C292 265 287 278 285 293 C283 308 286 324 290 331
+           C295 324 300 308 296 278Z"
+        fill="rgba(245,166,35,0.06)" stroke="rgba(245,166,35,0.12)" stroke-width="0.8"/>
+
+  <!-- ── NETWORK NODES (African tech hubs) ── -->
+  <!-- Lagos -->
+  <circle cx="118" cy="258" r="6" fill="#f5a623" opacity="0.95"/>
+  <circle cx="118" cy="258" r="13" fill="#f5a623" opacity="0.13"/>
+  <circle cx="118" cy="258" r="22" fill="#f5a623" opacity="0.05"/>
+  <!-- Nairobi -->
+  <circle cx="222" cy="302" r="6" fill="#1de8c8" opacity="0.95"/>
+  <circle cx="222" cy="302" r="13" fill="#1de8c8" opacity="0.13"/>
+  <circle cx="222" cy="302" r="22" fill="#1de8c8" opacity="0.05"/>
+  <!-- Cairo -->
+  <circle cx="198" cy="108" r="4.5" fill="#f5a623" opacity="0.85"/>
+  <circle cx="198" cy="108" r="10" fill="#f5a623" opacity="0.1"/>
+  <!-- Johannesburg -->
+  <circle cx="186" cy="418" r="4.5" fill="#1de8c8" opacity="0.85"/>
+  <circle cx="186" cy="418" r="10" fill="#1de8c8" opacity="0.1"/>
+  <!-- Casablanca -->
+  <circle cx="102" cy="96"  r="3.5" fill="#f5a623" opacity="0.75"/>
+  <!-- Accra -->
+  <circle cx="108" cy="276" r="3.5" fill="#f5a623" opacity="0.7"/>
+  <!-- Addis Ababa -->
+  <circle cx="232" cy="258" r="3.5" fill="#1de8c8" opacity="0.75"/>
+  <!-- Dar es Salaam -->
+  <circle cx="234" cy="338" r="3.5" fill="#f5a623" opacity="0.65"/>
+  <!-- Kigali -->
+  <circle cx="208" cy="312" r="3"   fill="#f5a623" opacity="0.8"/>
+  <!-- Kano -->
+  <circle cx="148" cy="228" r="3"   fill="#1de8c8" opacity="0.6"/>
+  <!-- Dakar -->
+  <circle cx="72"  cy="198" r="3"   fill="#f5a623" opacity="0.6"/>
+
+  <!-- ── CONNECTION LINES ── -->
+  <line x1="102" y1="96"  x2="198" y2="108" stroke="#f5a623" stroke-width="0.85" opacity="0.28" stroke-dasharray="5,4"/>
+  <line x1="198" y1="108" x2="232" y2="258" stroke="#1de8c8" stroke-width="0.85" opacity="0.28" stroke-dasharray="5,4"/>
+  <line x1="72"  y1="198" x2="118" y2="258" stroke="#f5a623" stroke-width="0.85" opacity="0.25" stroke-dasharray="4,4"/>
+  <line x1="118" y1="258" x2="108" y2="276" stroke="#f5a623" stroke-width="0.85" opacity="0.25" stroke-dasharray="3,4"/>
+  <line x1="118" y1="258" x2="208" y2="312" stroke="#f5a623" stroke-width="0.85" opacity="0.3"  stroke-dasharray="5,4"/>
+  <line x1="148" y1="228" x2="118" y2="258" stroke="#1de8c8" stroke-width="0.8"  opacity="0.22" stroke-dasharray="4,4"/>
+  <line x1="232" y1="258" x2="222" y2="302" stroke="#1de8c8" stroke-width="0.85" opacity="0.35" stroke-dasharray="5,4"/>
+  <line x1="222" y1="302" x2="234" y2="338" stroke="#1de8c8" stroke-width="0.8"  opacity="0.3"  stroke-dasharray="4,4"/>
+  <line x1="208" y1="312" x2="222" y2="302" stroke="#1de8c8" stroke-width="0.8"  opacity="0.3"  stroke-dasharray="3,4"/>
+  <line x1="222" y1="302" x2="186" y2="418" stroke="#1de8c8" stroke-width="0.8"  opacity="0.28" stroke-dasharray="5,4"/>
+  <line x1="234" y1="338" x2="186" y2="418" stroke="#f5a623" stroke-width="0.75" opacity="0.22" stroke-dasharray="4,5"/>
+  <line x1="118" y1="258" x2="232" y2="258" stroke="#f5a623" stroke-width="0.65" opacity="0.18" stroke-dasharray="6,5"/>
+
+  <!-- ── CITY LABELS ── -->
+  <text x="124" y="254" font-family="monospace" font-size="7.5" fill="#f5a623" opacity="0.75" letter-spacing="0.8">Lagos</text>
+  <text x="228" y="298" font-family="monospace" font-size="7.5" fill="#1de8c8" opacity="0.75" letter-spacing="0.8">Nairobi</text>
+  <text x="203" y="103" font-family="monospace" font-size="7"   fill="#f5a623" opacity="0.65">Cairo</text>
+  <text x="191" y="413" font-family="monospace" font-size="7"   fill="#1de8c8" opacity="0.65">Jo'burg</text>
+  <text x="213" y="308" font-family="monospace" font-size="6.5" fill="#f5a623" opacity="0.7">Kigali</text>
+</svg>

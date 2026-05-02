@@ -1,60 +1,61 @@
 /* ================================================================
-   REGULATORY ADVISOR — script.js
-   ICT Regulatory Counsel · Kigali, Rwanda
+   QOMEXIS LTD — script.js
+   Communication in Excellence | Market Access Across Africa
    ================================================================ */
 
 (function () {
   'use strict';
 
-  document.addEventListener('DOMContentLoaded', init);
-
-  function init() {
+  /* ── INIT on DOM ready ── */
+  document.addEventListener('DOMContentLoaded', function () {
     initNavScroll();
     initHamburger();
-    initActiveNavLinks();
+    initActiveNav();
     initSmoothScroll();
     initFadeObserver();
     initFormHandler();
-  }
+  });
 
   /* ================================================================
-     NAV: shadow on scroll
+     1. NAV — add .scrolled class for shadow
      ================================================================ */
   function initNavScroll() {
-    const nav = document.getElementById('navbar');
+    var nav = document.getElementById('navbar');
     if (!nav) return;
-    const tick = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+    function tick() { nav.classList.toggle('scrolled', window.scrollY > 20); }
     window.addEventListener('scroll', tick, { passive: true });
     tick();
   }
 
   /* ================================================================
-     HAMBURGER
+     2. HAMBURGER — toggle mobile menu
      ================================================================ */
   function initHamburger() {
-    const btn  = document.getElementById('hamburger');
-    const menu = document.getElementById('mobileMenu');
+    var btn  = document.getElementById('hamburger');
+    var menu = document.getElementById('mobileMenu');
     if (!btn || !menu) return;
 
-    btn.addEventListener('click', () => {
-      const open = btn.classList.toggle('open');
+    btn.addEventListener('click', function () {
+      var open = btn.classList.toggle('open');
       menu.classList.toggle('open', open);
       document.body.style.overflow = open ? 'hidden' : '';
-      btn.setAttribute('aria-expanded', open);
+      btn.setAttribute('aria-expanded', String(open));
     });
 
-    document.addEventListener('click', (e) => {
+    /* Close on outside click */
+    document.addEventListener('click', function (e) {
       if (!btn.contains(e.target) && !menu.contains(e.target)) closeMenu();
     });
 
-    document.addEventListener('keydown', (e) => {
+    /* Close on Escape */
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
     });
   }
 
   function closeMenu() {
-    const btn  = document.getElementById('hamburger');
-    const menu = document.getElementById('mobileMenu');
+    var btn  = document.getElementById('hamburger');
+    var menu = document.getElementById('mobileMenu');
     if (!btn || !menu) return;
     btn.classList.remove('open');
     menu.classList.remove('open');
@@ -62,73 +63,71 @@
     btn.setAttribute('aria-expanded', 'false');
   }
 
-  // Exposed for onclick attributes in mobile menu links
+  /* Exposed globally for onclick attributes in mobile-menu links */
   window.closeMobile = closeMenu;
 
   /* ================================================================
-     ACTIVE NAV LINKS
+     3. ACTIVE NAV LINKS — highlight on scroll
      ================================================================ */
-  function initActiveNavLinks() {
-    const sections = Array.from(document.querySelectorAll('section[id]'));
-    const links    = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  function initActiveNav() {
+    var sections = Array.from(document.querySelectorAll('section[id]'));
+    var links    = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
 
-    const onScroll = () => {
-      let current = '';
-      sections.forEach((s) => {
+    function update() {
+      var current = '';
+      sections.forEach(function (s) {
         if (window.scrollY >= s.offsetTop - 80) current = s.id;
       });
-      links.forEach((a) => {
+      links.forEach(function (a) {
         a.classList.toggle('active', a.getAttribute('href') === '#' + current);
       });
-    };
+    }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   }
 
   /* ================================================================
-     SMOOTH SCROLL (closes mobile menu on anchor click)
+     4. SMOOTH SCROLL — also closes mobile menu on anchor click
      ================================================================ */
   function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener('click', (e) => {
-        const target = document.querySelector(link.getAttribute('href'));
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var target = document.querySelector(link.getAttribute('href'));
         if (!target) return;
         e.preventDefault();
         closeMenu();
-        const offset = target.getBoundingClientRect().top + window.scrollY - 68;
+        var offset = target.getBoundingClientRect().top + window.scrollY
+          - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '66', 10);
         window.scrollTo({ top: offset, behavior: 'smooth' });
       });
     });
   }
 
   /* ================================================================
-     FADE-IN ON SCROLL
+     5. FADE-IN on scroll — IntersectionObserver
      ================================================================ */
   function initFadeObserver() {
-    const els = document.querySelectorAll('.fade-in');
+    var els = document.querySelectorAll('.fade-in');
     if (!els.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    els.forEach((el) => observer.observe(el));
+    els.forEach(function (el) { observer.observe(el); });
   }
 
   /* ================================================================
-     CONTACT FORM HANDLER
+     6. CONTACT FORM HANDLER
      ================================================================ */
   function initFormHandler() {
-    const form = document.getElementById('contactForm');
+    var form = document.getElementById('contactForm');
     if (!form) return;
     form.addEventListener('submit', handleSubmit);
   }
@@ -136,49 +135,47 @@
   function handleSubmit(e) {
     e.preventDefault();
 
-    const submitBtn = e.target.querySelector('.btn-submit');
-    const inputs    = e.target.querySelectorAll('input[required], textarea[required]');
+    var sendBtn = e.target.querySelector('.btn-send');
+    var required = Array.from(e.target.querySelectorAll('[required]'));
 
-    // Validate required fields
-    let valid = true;
-    inputs.forEach((inp) => {
+    /* Validate */
+    var valid = true;
+    required.forEach(function (inp) {
       if (!inp.value.trim()) {
         valid = false;
-        inp.style.borderColor = '#c0392b';
-        inp.addEventListener('input', () => { inp.style.borderColor = ''; }, { once: true });
+        inp.style.borderColor = '#e74c3c';
+        inp.addEventListener('input', function () { inp.style.borderColor = ''; }, { once: true });
       }
     });
     if (!valid) return;
 
-    // Sending state
-    const original = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-           style="animation:ra-spin 1s linear infinite">
-        <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" opacity=".25"/>
-        <path d="M21 12a9 9 0 00-9-9" stroke-linecap="round"/>
-      </svg>
-      Sending…`;
+    /* Sending state */
+    var original = sendBtn.innerHTML;
+    sendBtn.disabled = true;
+    sendBtn.innerHTML =
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"' +
+      ' style="animation:qs-spin 1s linear infinite">' +
+      '<path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" opacity=".25"/>' +
+      '<path d="M21 12a9 9 0 00-9-9" stroke-linecap="round"/></svg>Sending…';
 
-    setTimeout(() => {
-      submitBtn.innerHTML      = '✓ Inquiry Received';
-      submitBtn.style.background = '#2d6a4f';
-      submitBtn.style.color      = '#fff';
+    setTimeout(function () {
+      sendBtn.innerHTML        = '✓ Message Sent!';
+      sendBtn.style.background = '#1de8c8';
+      sendBtn.style.color      = '#080c12';
       e.target.reset();
 
-      setTimeout(() => {
-        submitBtn.innerHTML        = original;
-        submitBtn.style.background = '';
-        submitBtn.style.color      = '';
-        submitBtn.disabled         = false;
+      setTimeout(function () {
+        sendBtn.innerHTML        = original;
+        sendBtn.style.background = '';
+        sendBtn.style.color      = '';
+        sendBtn.disabled         = false;
       }, 4000);
-    }, 1500);
+    }, 1600);
   }
 
-  // Spinner keyframe
-  const style = document.createElement('style');
-  style.textContent = '@keyframes ra-spin { to { transform: rotate(360deg); } }';
-  document.head.appendChild(style);
+  /* Spinner keyframe injection */
+  var spinStyle = document.createElement('style');
+  spinStyle.textContent = '@keyframes qs-spin { to { transform: rotate(360deg); } }';
+  document.head.appendChild(spinStyle);
 
 })();
