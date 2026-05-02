@@ -1,0 +1,10 @@
+<svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="40" height="40" rx="6" fill="#1e3a5f"/>
+  <path d="M8 10 L20 6 L32 10 L32 34 L20 34 L8 34 Z" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+  <path d="M14 17 L26 17" stroke="#c9a84c" stroke-width="1.2"/>
+  <path d="M14 22 L22 22" stroke="#c9a84c" stroke-width="1.2"/>
+  <path d="M14 27 L24 27" stroke="#c9a84c" stroke-width="1.2"/>
+  <circle cx="20" cy="6" r="2" fill="#c9a84c"/>
+  <text x="50" y="24" font-family="Georgia,serif" font-size="15" font-weight="600" fill="rgba(255,255,255,0.75)" letter-spacing="0.3">Regulatory Advisor</text>
+  <text x="51" y="36" font-family="monospace" font-size="7" fill="#c9a84c" letter-spacing="1.5">ICT REGULATORY COUNSEL</text>
+</svg>

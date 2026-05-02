@@ -1,6 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44">
-  <rect width="44" height="44" rx="9" fill="#f5a623"/>
-  <text x="4" y="34" font-family="Arial Black,sans-serif" font-weight="900" font-size="30" fill="#080c12">Q</text>
-  <path d="M33 10 Q40 17 33 24" stroke="#080c12" stroke-width="2.3" fill="none" stroke-linecap="round"/>
-  <path d="M36.5 7 Q45 17 36.5 27" stroke="#080c12" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.45"/>
+<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="40" height="40" rx="6" fill="#0a1628"/>
+  <path d="M8 10 L20 6 L32 10 L32 34 L20 34 L8 34 Z" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+  <path d="M14 17 L26 17" stroke="#c9a84c" stroke-width="1.2"/>
+  <path d="M14 22 L22 22" stroke="#c9a84c" stroke-width="1.2"/>
+  <path d="M14 27 L24 27" stroke="#c9a84c" stroke-width="1.2"/>
+  <circle cx="20" cy="6" r="2" fill="#c9a84c"/>
+  <path d="M20 8 L20 12" stroke="#c9a84c" stroke-width="1.2"/>
+  <path d="M17 11 L23 11" stroke="#c9a84c" stroke-width="0.8" stroke-dasharray="1.5 1.5"/>
 </svg>

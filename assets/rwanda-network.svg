@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" fill="none">
+  <!-- Rwanda simplified outline -->
+  <path d="M80 100 C85 85 100 75 120 72 C140 69 165 74 185 80 C210 87 230 98 245 115 C258 130 262 148 258 165 C254 182 242 196 228 208 C212 221 193 230 174 235 C154 240 132 238 114 230 C96 222 82 208 74 192 C66 175 65 158 70 142 C74 127 76 113 80 100Z"
+    fill="rgba(201,168,76,0.05)" stroke="rgba(201,168,76,0.2)" stroke-width="1.5"/>
+
+  <!-- RURA signal nodes (districts / towers) -->
+  <circle cx="165" cy="130" r="5" fill="#c9a84c" opacity="0.85"/>
+  <circle cx="165" cy="130" r="11" fill="#c9a84c" opacity="0.12"/>
+  <circle cx="165" cy="130" r="18" fill="#c9a84c" opacity="0.06"/>
+
+  <circle cx="210" cy="155" r="4" fill="#e8c97a" opacity="0.75"/>
+  <circle cx="210" cy="155" r="9" fill="#e8c97a" opacity="0.1"/>
+
+  <circle cx="130" cy="170" r="4" fill="#c9a84c" opacity="0.7"/>
+  <circle cx="130" cy="170" r="9" fill="#c9a84c" opacity="0.1"/>
+
+  <circle cx="180" cy="195" r="3.5" fill="#e8c97a" opacity="0.65"/>
+  <circle cx="105" cy="135" r="3" fill="#c9a84c" opacity="0.6"/>
+  <circle cx="220" cy="120" r="3" fill="#c9a84c" opacity="0.55"/>
+  <circle cx="150" cy="210" r="3" fill="#e8c97a" opacity="0.55"/>
+  <circle cx="235" cy="185" r="3" fill="#c9a84c" opacity="0.5"/>
+
+  <!-- Connection lines (regulatory network) -->
+  <line x1="165" y1="130" x2="210" y2="155" stroke="#c9a84c" stroke-width="0.8" opacity="0.3" stroke-dasharray="4,3"/>
+  <line x1="165" y1="130" x2="130" y2="170" stroke="#c9a84c" stroke-width="0.8" opacity="0.3" stroke-dasharray="4,3"/>
+  <line x1="165" y1="130" x2="105" y2="135" stroke="#c9a84c" stroke-width="0.7" opacity="0.25" stroke-dasharray="3,4"/>
+  <line x1="165" y1="130" x2="220" y2="120" stroke="#c9a84c" stroke-width="0.7" opacity="0.25" stroke-dasharray="3,4"/>
+  <line x1="210" y1="155" x2="235" y2="185" stroke="#c9a84c" stroke-width="0.7" opacity="0.25" stroke-dasharray="3,3"/>
+  <line x1="130" y1="170" x2="150" y2="210" stroke="#c9a84c" stroke-width="0.7" opacity="0.25" stroke-dasharray="3,3"/>
+  <line x1="180" y1="195" x2="150" y2="210" stroke="#c9a84c" stroke-width="0.6" opacity="0.2" stroke-dasharray="3,4"/>
+  <line x1="210" y1="155" x2="180" y2="195" stroke="#c9a84c" stroke-width="0.6" opacity="0.2" stroke-dasharray="4,3"/>
+
+  <!-- Kigali label -->
+  <text x="170" y="126" font-family="monospace" font-size="8" fill="#c9a84c" opacity="0.7" letter-spacing="1">KIGALI</text>
+
+  <!-- signal arc decorations around main node -->
+  <path d="M150 115 Q165 105 180 115" stroke="#c9a84c" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="2,2"/>
+  <path d="M142 107 Q165 95 188 107" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.18" stroke-dasharray="2,3"/>
+</svg>

@@ -1,41 +1,35 @@
 /* ================================================================
-   QOMEXIS LTD — script.js
-   Communication in Excellence | ICT & Telecom Regulatory Advisory
+   REGULATORY ADVISOR — script.js
+   ICT Regulatory Counsel · Kigali, Rwanda
    ================================================================ */
 
 (function () {
   'use strict';
 
-  /* ── DOM READY ── */
   document.addEventListener('DOMContentLoaded', init);
 
   function init() {
     initNavScroll();
     initHamburger();
     initActiveNavLinks();
-    initFadeInObserver();
-    initCounters();
+    initSmoothScroll();
+    initFadeObserver();
     initFormHandler();
-    initSmoothScrollLinks();
   }
 
   /* ================================================================
-     NAV: Add 'scrolled' class for shadow on scroll
+     NAV: shadow on scroll
      ================================================================ */
   function initNavScroll() {
     const nav = document.getElementById('navbar');
     if (!nav) return;
-
-    const onScroll = () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // run once on load
+    const tick = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+    window.addEventListener('scroll', tick, { passive: true });
+    tick();
   }
 
   /* ================================================================
-     HAMBURGER: Toggle mobile menu
+     HAMBURGER
      ================================================================ */
   function initHamburger() {
     const btn  = document.getElementById('hamburger');
@@ -43,27 +37,22 @@
     if (!btn || !menu) return;
 
     btn.addEventListener('click', () => {
-      const isOpen = btn.classList.toggle('open');
-      menu.classList.toggle('open', isOpen);
-      // Prevent body scroll when menu open
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-      btn.setAttribute('aria-expanded', isOpen);
+      const open = btn.classList.toggle('open');
+      menu.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      btn.setAttribute('aria-expanded', open);
     });
 
-    // Close on outside click
     document.addEventListener('click', (e) => {
-      if (!btn.contains(e.target) && !menu.contains(e.target)) {
-        closeMobileMenu();
-      }
+      if (!btn.contains(e.target) && !menu.contains(e.target)) closeMenu();
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMobileMenu();
+      if (e.key === 'Escape') closeMenu();
     });
   }
 
-  function closeMobileMenu() {
+  function closeMenu() {
     const btn  = document.getElementById('hamburger');
     const menu = document.getElementById('mobileMenu');
     if (!btn || !menu) return;
@@ -73,28 +62,22 @@
     btn.setAttribute('aria-expanded', 'false');
   }
 
-  // Exposed globally for inline onclick in mobile menu links
-  window.closeMobile = closeMobileMenu;
+  // Exposed for onclick attributes in mobile menu links
+  window.closeMobile = closeMenu;
 
   /* ================================================================
-     ACTIVE NAV LINKS: Highlight link matching current section
+     ACTIVE NAV LINKS
      ================================================================ */
   function initActiveNavLinks() {
-    const sections  = Array.from(document.querySelectorAll('section[id]'));
-    const navLinks  = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
-    const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 66;
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const links    = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
 
     const onScroll = () => {
-      const scrollY = window.scrollY;
-      let current   = '';
-
-      sections.forEach((section) => {
-        if (scrollY >= section.offsetTop - navHeight - 10) {
-          current = section.id;
-        }
+      let current = '';
+      sections.forEach((s) => {
+        if (window.scrollY >= s.offsetTop - 80) current = s.id;
       });
-
-      navLinks.forEach((a) => {
+      links.forEach((a) => {
         a.classList.toggle('active', a.getAttribute('href') === '#' + current);
       });
     };
@@ -104,84 +87,41 @@
   }
 
   /* ================================================================
-     SMOOTH SCROLL: Close mobile menu and scroll to anchor
+     SMOOTH SCROLL (closes mobile menu on anchor click)
      ================================================================ */
-  function initSmoothScrollLinks() {
+  function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
       link.addEventListener('click', (e) => {
         const target = document.querySelector(link.getAttribute('href'));
         if (!target) return;
         e.preventDefault();
-        closeMobileMenu();
-        const offset = target.getBoundingClientRect().top + window.scrollY
-          - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 66);
+        closeMenu();
+        const offset = target.getBoundingClientRect().top + window.scrollY - 68;
         window.scrollTo({ top: offset, behavior: 'smooth' });
       });
     });
   }
 
   /* ================================================================
-     INTERSECTION OBSERVER: Fade-in elements on scroll
+     FADE-IN ON SCROLL
      ================================================================ */
-  function initFadeInObserver() {
-    const elements = document.querySelectorAll('.fade-in');
-    if (!elements.length) return;
+  function initFadeObserver() {
+    const els = document.querySelectorAll('.fade-in');
+    if (!els.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // fire once
+            observer.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
 
-    elements.forEach((el) => observer.observe(el));
-  }
-
-  /* ================================================================
-     COUNTERS: Animate stat numbers when visible
-     ================================================================ */
-  function initCounters() {
-    const counters = document.querySelectorAll('[data-count]');
-    if (!counters.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    counters.forEach((el) => observer.observe(el));
-  }
-
-  function animateCounter(el) {
-    const target   = parseFloat(el.dataset.count);
-    const suffix   = el.dataset.suffix || '';
-    const duration = 1400;
-    const start    = performance.now();
-
-    const update = (now) => {
-      const elapsed  = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased    = 1 - Math.pow(1 - progress, 3); // ease-out-cubic
-      const value    = target * eased;
-
-      el.textContent = (Number.isInteger(target) ? Math.round(value) : value.toFixed(1)) + suffix;
-
-      if (progress < 1) requestAnimationFrame(update);
-    };
-
-    requestAnimationFrame(update);
+    els.forEach((el) => observer.observe(el));
   }
 
   /* ================================================================
@@ -190,73 +130,55 @@
   function initFormHandler() {
     const form = document.getElementById('contactForm');
     if (!form) return;
-
-    form.addEventListener('submit', handleFormSubmit);
+    form.addEventListener('submit', handleSubmit);
   }
 
-  function handleFormSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
-    const btn    = e.target.querySelector('.btn-send');
-    const inputs = e.target.querySelectorAll('input, textarea, select');
+    const submitBtn = e.target.querySelector('.btn-submit');
+    const inputs    = e.target.querySelectorAll('input[required], textarea[required]');
 
-    // Basic validation
+    // Validate required fields
     let valid = true;
-    inputs.forEach((input) => {
-      if (input.required && !input.value.trim()) {
+    inputs.forEach((inp) => {
+      if (!inp.value.trim()) {
         valid = false;
-        highlightError(input);
-      } else {
-        clearError(input);
+        inp.style.borderColor = '#c0392b';
+        inp.addEventListener('input', () => { inp.style.borderColor = ''; }, { once: true });
       }
     });
-
     if (!valid) return;
 
-    // Simulate send state
-    const originalHTML = btn.innerHTML;
-    btn.innerHTML = `
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-           style="animation:spin 1s linear infinite">
+    // Sending state
+    const original = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+           style="animation:ra-spin 1s linear infinite">
         <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" opacity=".25"/>
         <path d="M21 12a9 9 0 00-9-9" stroke-linecap="round"/>
       </svg>
       Sending…`;
-    btn.disabled = true;
 
     setTimeout(() => {
-      btn.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-        Message Sent!`;
-      btn.style.background = '#1de8c8';
-      btn.style.color      = '#080c12';
+      submitBtn.innerHTML      = '✓ Inquiry Received';
+      submitBtn.style.background = '#2d6a4f';
+      submitBtn.style.color      = '#fff';
       e.target.reset();
 
       setTimeout(() => {
-        btn.innerHTML        = originalHTML;
-        btn.style.background = '';
-        btn.style.color      = '';
-        btn.disabled         = false;
+        submitBtn.innerHTML        = original;
+        submitBtn.style.background = '';
+        submitBtn.style.color      = '';
+        submitBtn.disabled         = false;
       }, 4000);
-    }, 1600);
+    }, 1500);
   }
 
-  function highlightError(input) {
-    input.style.borderColor = '#e55353';
-    input.addEventListener('input', () => clearError(input), { once: true });
-  }
-
-  function clearError(input) {
-    input.style.borderColor = '';
-  }
-
-  /* ================================================================
-     INJECT SPINNER KEYFRAME (needed for send button animation)
-     ================================================================ */
-  const spinStyle = document.createElement('style');
-  spinStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-  document.head.appendChild(spinStyle);
+  // Spinner keyframe
+  const style = document.createElement('style');
+  style.textContent = '@keyframes ra-spin { to { transform: rotate(360deg); } }';
+  document.head.appendChild(style);
 
 })();
