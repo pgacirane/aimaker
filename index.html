@@ -4,214 +4,163 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Qomexis Ltd — Communication in Excellence</title>
-  <meta name="description" content="Qomexis Ltd simplifies market access in Africa through trusted regulatory expertise and local presence." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
-  <header class="navbar" id="navbar">
-    <div class="nav-container">
+  <!-- ============ NAVIGATION ============ -->
+  <header id="navbar">
+    <nav class="nav-container">
       <a href="#home" class="nav-logo">
         <img src="assets/logo.svg" alt="Qomexis Logo" class="logo-img" />
         <span class="logo-text">Qomexis</span>
       </a>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="#home"     class="nav-link active">Home</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#about"    class="nav-link">About</a>
-        <a href="#clients"  class="nav-link">Clients</a>
-        <a href="#contact"  class="nav-link nav-cta">Contact Us</a>
-      </nav>
-
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#clients" class="nav-link">Clients</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
-    </div>
+    </nav>
   </header>
 
   <main>
 
-    <!-- ═══════════════════════ HERO ═══════════════════════ -->
-    <section class="hero" id="home">
-      <div class="hero-bg">
-        <div class="grid-overlay"></div>
-        <div class="glow-orb glow-1"></div>
-        <div class="glow-orb glow-2"></div>
-      </div>
-
+    <!-- ============ HERO SECTION ============ -->
+    <section id="home" class="hero-section">
+      <div class="hero-bg-grid"></div>
       <div class="hero-content">
         <div class="hero-text">
           <div class="hero-badge">
             <i class="fa-solid fa-signal"></i>
-            <span>Regulatory &amp; Market Access Specialists</span>
+            Regulatory Intelligence for Africa
           </div>
           <h1 class="hero-title">
-            Communication<br />
-            <span class="gradient-text">in Excellence</span>
+            <span class="gradient-text">Communication</span><br />
+            in Excellence
           </h1>
           <p class="hero-tagline">Unlock African Markets with Regulatory Confidence</p>
-          <p class="hero-sub">
+          <p class="hero-intro">
             Expanding into African markets requires navigating complex regulatory environments
             and local compliance requirements. Qomexis Ltd simplify this process by providing
             end-to-end regulatory support and in-country representation.
           </p>
           <div class="hero-actions">
-            <a href="#services" class="btn btn-primary">
-              <i class="fa-solid fa-arrow-right"></i> Explore Services
-            </a>
-            <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+            <a href="#services" class="btn-primary">Explore Services</a>
+            <a href="#contact" class="btn-outline">Get in Touch</a>
           </div>
         </div>
-
-        <div class="hero-visual">
-          <div class="map-wrapper">
-            <div class="map-ring map-ring-1"></div>
-            <div class="map-ring map-ring-2"></div>
-            <div class="map-ring map-ring-3"></div>
-            <img src="assets/africa-map.svg" alt="Africa Market Map" class="africa-map" />
-            <div class="map-label map-label-1">
-              <span class="dot"></span><span>Telecom</span>
-            </div>
-            <div class="map-label map-label-2">
-              <span class="dot"></span><span>IoT</span>
-            </div>
-            <div class="map-label map-label-3">
-              <span class="dot"></span><span>ICT</span>
-            </div>
-          </div>
+        <div class="hero-map-wrap">
+          <div class="map-glow-ring"></div>
+          <img src="assets/africa-map.png" alt="Africa ICT & Telecom Network Map" class="hero-map" />
         </div>
       </div>
-
-      <div class="hero-scroll">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
+      <div class="hero-scroll-hint">
+        <span>Scroll to explore</span>
+        <i class="fa-solid fa-chevron-down bounce"></i>
       </div>
     </section>
 
-    <!-- ═══════════════════════ SERVICES ═══════════════════════ -->
-    <section class="section services" id="services">
-      <div class="container">
+    <!-- ============ WHY CHOOSE US (STATS STRIP) ============ -->
+    <section class="stats-strip">
+      <div class="strip-inner">
+        <div class="stat-item">
+          <i class="fa-solid fa-shield-halved stat-icon"></i>
+          <span class="stat-label">Local Regulatory Expertise</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <i class="fa-solid fa-circle-check stat-icon"></i>
+          <span class="stat-label">Reduced Compliance Risks</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <i class="fa-solid fa-building-circle-xmark stat-icon"></i>
+          <span class="stat-label">No Local Entity Setup Required</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <i class="fa-solid fa-arrow-up-right-dots stat-icon"></i>
+          <span class="stat-label">Scalable Across Multiple African Markets</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES SECTION ============ -->
+    <section id="services" class="section services-section">
+      <div class="section-inner">
         <div class="section-header">
-          <span class="section-tag">What We Do</span>
+          <span class="section-label">What We Do</span>
           <h2 class="section-title">Our Services</h2>
-          <p class="section-sub">End-to-end regulatory support tailored for technology companies entering Africa.</p>
+          <p class="section-subtitle">
+            We guide your expansion into Africa with precision, speed, and regulatory confidence.
+          </p>
         </div>
 
         <div class="services-grid">
 
-          <!-- Card 1 -->
           <div class="service-card" data-index="1">
-            <div class="card-icon">
-              <i class="fa-solid fa-compass"></i>
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-map-location-dot"></i>
             </div>
             <h3>Market Entry Advisory</h3>
-            <p class="card-intro">We guide your expansion:</p>
-            <ul class="card-list">
-              <li><i class="fa-solid fa-chevron-right"></i> Regulatory strategy</li>
-              <li><i class="fa-solid fa-chevron-right"></i> Importation and licensing support</li>
-              <li><i class="fa-solid fa-chevron-right"></i> Market entry planning</li>
+            <p class="service-lead">We guide your expansion:</p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-angle-right"></i> Regulatory strategy</li>
+              <li><i class="fa-solid fa-angle-right"></i> Importation and licensing support</li>
+              <li><i class="fa-solid fa-angle-right"></i> Market entry planning</li>
             </ul>
           </div>
 
-          <!-- Card 2 -->
           <div class="service-card" data-index="2">
-            <div class="card-icon">
-              <i class="fa-solid fa-building-columns"></i>
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-handshake"></i>
             </div>
             <h3>Local Representation</h3>
-            <p class="card-intro">Your in-country presence:</p>
-            <ul class="card-list">
-              <li><i class="fa-solid fa-chevron-right"></i> Regulatory interface</li>
-              <li><i class="fa-solid fa-chevron-right"></i> Managing compliance obligations</li>
-              <li><i class="fa-solid fa-chevron-right"></i> Handling renewals and updates</li>
+            <p class="service-lead">Your trusted in-country presence:</p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-angle-right"></i> Regulatory interface</li>
+              <li><i class="fa-solid fa-angle-right"></i> Managing compliance obligations</li>
+              <li><i class="fa-solid fa-angle-right"></i> Handling renewals and updates</li>
             </ul>
           </div>
 
-          <!-- Card 3 -->
           <div class="service-card" data-index="3">
-            <div class="card-icon">
+            <div class="service-icon-wrap">
               <i class="fa-solid fa-microchip"></i>
             </div>
             <h3>Device Type Approval</h3>
-            <p class="card-intro">Smooth device certification:</p>
-            <ul class="card-list">
-              <li><i class="fa-solid fa-chevron-right"></i> Device eligibility assessment</li>
-              <li><i class="fa-solid fa-chevron-right"></i> Document preparation</li>
-              <li><i class="fa-solid fa-chevron-right"></i> Application submission and follow-up</li>
+            <p class="service-lead">End-to-end device certification:</p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-angle-right"></i> Device eligibility assessment</li>
+              <li><i class="fa-solid fa-angle-right"></i> Document preparation</li>
+              <li><i class="fa-solid fa-angle-right"></i> Application submission and follow-up</li>
             </ul>
           </div>
 
         </div>
-
-        <!-- Why Choose section -->
-        <div class="why-choose">
-          <div class="why-header">
-            <span class="section-tag">Why Qomexis</span>
-            <h2 class="section-title">Why Choose Us</h2>
-          </div>
-          <div class="why-grid">
-            <div class="why-item">
-              <div class="why-icon"><i class="fa-solid fa-map-pin"></i></div>
-              <span>Local regulatory expertise</span>
-            </div>
-            <div class="why-item">
-              <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
-              <span>Reduced compliance risks</span>
-            </div>
-            <div class="why-item">
-              <div class="why-icon"><i class="fa-solid fa-building-user"></i></div>
-              <span>No need for local entity setup</span>
-            </div>
-            <div class="why-item">
-              <div class="why-icon"><i class="fa-solid fa-earth-africa"></i></div>
-              <span>Scalable across multiple African markets</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
-    <section class="section about" id="about">
-      <div class="container">
+    <!-- ============ ABOUT SECTION ============ -->
+    <section id="about" class="section about-section">
+      <div class="about-bg-circuit"></div>
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-label">Who We Are</span>
+          <h2 class="section-title">About Qomexis</h2>
+        </div>
 
-        <div class="about-layout">
-          <div class="about-visual">
-            <div class="about-card-stack">
-              <div class="about-stat-card">
-                <i class="fa-solid fa-tower-broadcast"></i>
-                <div>
-                  <strong>Telecom</strong>
-                  <span>Regulatory support</span>
-                </div>
-              </div>
-              <div class="about-stat-card">
-                <i class="fa-solid fa-wifi"></i>
-                <div>
-                  <strong>ICT &amp; IoT</strong>
-                  <span>Device approvals</span>
-                </div>
-              </div>
-              <div class="about-stat-card">
-                <i class="fa-solid fa-globe-africa"></i>
-                <div>
-                  <strong>Africa</strong>
-                  <span>Market access</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-content">
-            <span class="section-tag">About Us</span>
-            <h2 class="section-title">Who We Are</h2>
+        <div class="about-grid">
+          <div class="about-main">
             <p class="about-lead">
               Qomexis Ltd is a regulatory and market access firm that provides market access
               solutions for Telecom, ICT and IoT companies expanding into Africa.
@@ -221,156 +170,154 @@
               management to enable efficient, low-risk entry into regulated markets.
             </p>
 
-            <div class="mvv-grid">
-              <div class="mvv-item">
-                <div class="mvv-icon"><i class="fa-solid fa-bullseye"></i></div>
-                <div>
-                  <h4>Our Mission</h4>
-                  <p>To simplify market access in Africa through trusted regulatory expertise and local presence.</p>
-                </div>
-              </div>
-              <div class="mvv-item">
-                <div class="mvv-icon"><i class="fa-solid fa-eye"></i></div>
-                <div>
-                  <h4>Our Vision</h4>
-                  <p>To become a leading compliance partner for technology companies expanding across Africa.</p>
-                </div>
-              </div>
-            </div>
-
             <div class="approach-block">
               <h4>Our Approach</h4>
               <div class="approach-tags">
                 <span class="tag"><i class="fa-solid fa-bolt"></i> Practical and execution-focused</span>
                 <span class="tag"><i class="fa-solid fa-gauge-high"></i> Fast and responsive</span>
-                <span class="tag"><i class="fa-solid fa-lightbulb"></i> Built on regulatory understanding and local insight</span>
+                <span class="tag"><i class="fa-solid fa-brain"></i> Built on regulatory understanding and local insight</span>
               </div>
             </div>
           </div>
-        </div>
 
+          <div class="about-cards">
+            <div class="mv-card">
+              <div class="mv-icon"><i class="fa-solid fa-bullseye"></i></div>
+              <h4>Our Mission</h4>
+              <p>To simplify market access in Africa through trusted regulatory expertise and local presence.</p>
+            </div>
+            <div class="mv-card vision">
+              <div class="mv-icon"><i class="fa-solid fa-eye"></i></div>
+              <h4>Our Vision</h4>
+              <p>To become a leading compliance partner for technology companies expanding across Africa.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════ CLIENTS ═══════════════════════ -->
-    <section class="section clients" id="clients">
-      <div class="container">
+    <!-- ============ CLIENTS SECTION ============ -->
+    <section id="clients" class="section clients-section">
+      <div class="section-inner">
         <div class="section-header">
-          <span class="section-tag">Who We Serve</span>
+          <span class="section-label">Who We Serve</span>
           <h2 class="section-title">Our Clients</h2>
-          <p class="section-sub">We partner with technology companies ready to unlock African markets.</p>
+          <p class="section-subtitle">
+            We partner with technology companies ready to unlock African markets.
+          </p>
         </div>
 
         <div class="clients-grid">
           <div class="client-card">
             <div class="client-icon">
-              <i class="fa-solid fa-tower-cell"></i>
+              <i class="fa-solid fa-tower-broadcast"></i>
             </div>
             <h3>Telecom Equipment Manufacturers</h3>
-            <p>Companies producing telecom hardware seeking regulatory approval and market entry across African jurisdictions.</p>
+            <p>Companies producing telecom hardware seeking regulatory clearance and market access across African jurisdictions.</p>
           </div>
+
           <div class="client-card">
             <div class="client-icon">
-              <i class="fa-solid fa-microchip"></i>
+              <i class="fa-solid fa-wifi"></i>
             </div>
             <h3>IoT &amp; Smart Devices Companies</h3>
-            <p>Innovators bringing connected devices and smart technology solutions to African consumers and enterprises.</p>
+            <p>Innovators in connected devices and smart technologies navigating multi-country type approval and compliance.</p>
           </div>
+
           <div class="client-card">
             <div class="client-icon">
               <i class="fa-solid fa-network-wired"></i>
             </div>
             <h3>Network Infrastructure Providers</h3>
-            <p>Providers building the digital backbone of Africa — from data centres to wireless infrastructure.</p>
+            <p>Infrastructure builders and operators requiring end-to-end regulatory support for African deployments.</p>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
-    <section class="section contact" id="contact">
-      <div class="container">
+    <!-- ============ CONTACT SECTION ============ -->
+    <section id="contact" class="section contact-section">
+      <div class="contact-bg"></div>
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-label">Reach Out</span>
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="section-subtitle contact-cta-text">
+            Ready to enter African markets?
+          </p>
+        </div>
 
-        <div class="contact-layout">
-          <div class="contact-text">
-            <span class="section-tag">Get in Touch</span>
-            <h2 class="section-title">Ready to Enter<br /><span class="gradient-text">African Markets?</span></h2>
-            <p class="contact-sub">Reach out to us and let Qomexis Ltd guide you through the regulatory landscape with confidence.</p>
-
-            <div class="contact-details">
-              <div class="contact-item">
-                <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-                <div>
-                  <span class="contact-label">Email</span>
-                  <a href="mailto:" class="contact-value">contact@qomexis.com</a>
-                </div>
-              </div>
-              <div class="contact-item">
-                <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-                <div>
-                  <span class="contact-label">Phone</span>
-                  <a href="tel:" class="contact-value">+[Phone Number]</a>
-                </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">info@qomexis.com</span>
               </div>
             </div>
-
-            <div class="social-links">
-              <span class="social-label">Our Social Media</span>
-              <div class="social-icons">
-                <a href="#" class="social-icon" aria-label="LinkedIn">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="social-icon" aria-label="Twitter / X">
-                  <i class="fa-brands fa-x-twitter"></i>
-                </a>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <span class="contact-label">Phone</span>
+                <span class="contact-value">+000 000 000 000</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">linkedin.com/company/qomexis</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-brands fa-x-twitter"></i></div>
+              <div>
+                <span class="contact-label">Twitter / X</span>
+                <span class="contact-value">@qomexis</span>
               </div>
             </div>
           </div>
 
-          <div class="contact-card">
-            <div class="contact-card-inner">
-              <div class="contact-card-icon">
-                <i class="fa-solid fa-earth-africa"></i>
-              </div>
-              <h3>Start Your Market Entry</h3>
-              <p>Let us handle the regulatory complexity so you can focus on growth.</p>
-              <ul class="contact-checklist">
-                <li><i class="fa-solid fa-check"></i> End-to-end regulatory support</li>
-                <li><i class="fa-solid fa-check"></i> In-country representation</li>
-                <li><i class="fa-solid fa-check"></i> Device type approval</li>
-                <li><i class="fa-solid fa-check"></i> Scalable across African markets</li>
-              </ul>
-              <a href="mailto:" class="btn btn-primary btn-full">
-                <i class="fa-solid fa-paper-plane"></i> Send Us a Message
-              </a>
+          <div class="contact-message">
+            <div class="contact-box">
+              <i class="fa-solid fa-globe contact-globe"></i>
+              <h3>Your Gateway to Africa</h3>
+              <p>
+                Whether you are launching a new device, expanding into a new country,
+                or need an in-country compliance partner — Qomexis is ready to support you.
+              </p>
+              <a href="mailto:info@qomexis.com" class="btn-primary">Send Us a Message</a>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
   </main>
 
-  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <img src="assets/logo.svg" alt="Qomexis Logo" class="logo-img" />
-          <span class="logo-text">Qomexis Ltd</span>
-        </div>
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.svg" alt="Qomexis Logo" class="footer-logo" />
+        <span class="footer-name">Qomexis Ltd</span>
         <p class="footer-tagline">Communication in Excellence</p>
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#clients">Clients</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <p class="footer-copy">&copy; 2025 Qomexis Ltd. All rights reserved.</p>
       </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Qomexis Ltd. All rights reserved.</p>
     </div>
   </footer>
 
