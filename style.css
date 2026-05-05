@@ -182,8 +182,10 @@ ul    { list-style: none; }
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 14px;
-  overflow-wrap: break-word;
-  word-break: break-word;   /* fallback for older mobile browsers */
+  /* Add these lines below */
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; /* Optional: adds "..." if the screen is extremely narrow */
 }
 .gradient-text {
   background: linear-gradient(135deg, var(--clr-blue-lt) 0%, var(--clr-cyan) 100%);
