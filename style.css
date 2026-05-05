@@ -154,9 +154,11 @@ ul    { list-style: none; }
   width: 100%;
   padding: 48px var(--px) 32px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Change '1fr 1fr' to this to prioritize text space */
+  grid-template-columns: 1.4fr 0.6fr; 
   align-items: center;
-  gap: 40px;
+  /* Increase the gap to prevent the map from touching the text */
+  gap: 80px; 
   position: relative;
   z-index: 2;
 }
@@ -177,15 +179,11 @@ ul    { list-style: none; }
 }
 .hero-title {
   font-family: var(--ff-head);
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  /* Slightly reducing the max font size (from 4rem to 3.5rem) helps fit big screens */
+  font-size: clamp(2rem, 4.5vw, 3.5rem); 
   font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 14px;
-  /* Add these lines below */
-  white-space: nowrap; 
-  overflow: hidden;
-  text-overflow: ellipsis; /* Optional: adds "..." if the screen is extremely narrow */
+  white-space: nowrap; /* Keep it on one line as you requested */
 }
 .gradient-text {
   background: linear-gradient(135deg, var(--clr-blue-lt) 0%, var(--clr-cyan) 100%);
@@ -613,13 +611,27 @@ ul    { list-style: none; }
     gap: 28px;
     padding-top: 40px;
   }
-  .hero-text     { order: 1; }
-  .hero-map-wrap { order: 2; }
-  .hero-badge    { justify-content: center; }
-  .hero-intro    { margin: 0 auto 32px; }
-  .hero-actions  { justify-content: center; }
+  .hero-text {
+  /* This ensures the title has its own dedicated column space */
+  width: 100%;
+  max-width: 650px; 
+  text-align: left;
+}
+.hero-map-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Keeps the map pinned to the right side */
+  min-width: 0;
+}
 
-  .hero-map { max-width: 480px; width: 80%; }
+.hero-map {
+  width: 100%;
+  /* Lowering the max-width prevents it from meeting the text on wide screens */
+  max-width: 420px; 
+  height: auto;
+  object-fit: contain;
+}
 
   .about-grid    { grid-template-columns: 1fr; gap: 36px; }
   .contact-grid  { grid-template-columns: 1fr; }
