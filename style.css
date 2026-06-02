@@ -566,8 +566,8 @@ ul    { list-style: none; }
   justify-content: space-between;
   gap: 24px; flex-wrap: wrap;
 }
-.footer-brand  { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
-.footer-logo   { width: 30px; height: 30px; margin-bottom: 4px; }
+.footer-brand  { display: flex; flex-direction: row; align-items: center; gap: 10px; }
+.footer-logo   { width: auto; height: 40px; margin-bottom:0; }
 .footer-name   { font-family: var(--ff-head); font-size: 1.05rem; font-weight: 800; color: var(--clr-white); }
 .footer-tagline{ font-size: 0.78rem; color: var(--clr-muted2); font-style: italic; }
 .footer-links  { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
